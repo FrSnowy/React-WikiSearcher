@@ -1,0 +1,16 @@
+@mixin Content(
+  $class: 'content',
+  $full-width: 1024px,
+) {
+  .#{$class}-wrapper {
+    position: relative;
+    width: $full-width;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1023px) {
+    .#{$class}-wrapper {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@mixin SearchBar(
+  $class: 'searchbar',
+  $width: 300px,
+  $height: 32px,
+  $padding-left: 16px,
+  $padding-right: 36px,
+  $with-outline: false,
+) {
+  .#{$class}-wrapper {
+    position: relative;
+    width: $width;
+    margin: 0 auto;
+
+    input {
+      width: calc(100% - #{$padding-left} - #{$padding-right});
+      height: $height;
+
+      padding-left: $padding-left;
+      padding-right: $padding-right;
+
+      @if not $with-outline {
+        outline: none;        
+      }
+
+      border: 1px solid lightgray;
+      transition: border .25s linear;
+
+    }
+
+    &.error-animation {
+      input {
+        border: 1px solid red;
+      }
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .#{$class}-wrapper {
+      width: 80%;
+    }
+  }
+}

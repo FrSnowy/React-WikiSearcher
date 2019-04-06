@@ -1,0 +1,45 @@
+@mixin Header(
+  $class: 'header',
+  $width: 100%,
+) {
+  .#{$class}-wrapper {
+    margin: 24px auto;
+    width: $width;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * { 
+      display: inline-flex;
+      vertical-align: top;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+
+      margin-right: 24px;
+
+      img { width: 100% }
+    }
+
+    .#{$class}-text-wrapper {
+      flex-direction: column;
+
+      .title, .subtitle {
+        margin: 0;
+        font-weight: normal;
+      }
+
+      .title { font-size: 28px; }
+      .subtitle { font-size: 20px;  }
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .#{$class}-wrapper {
+      width: 100%;
+    }
+  }
+}

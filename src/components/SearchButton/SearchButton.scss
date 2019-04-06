@@ -1,0 +1,40 @@
+@mixin SearchButton(
+  $class: 'search-button',
+  $width: 36px,
+  $height: 36px,
+  $background-color: rgb(79, 195, 247)
+) {
+  .#{$class} {
+    width: $width;
+    height: $height;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: calc(100% - #{$width} + 4px);
+    
+    transition: .25s background-color linear;
+
+    img {
+      width: 50%;
+      height: 50%;
+    }
+
+    &.reading {
+      background-color: $background-color;
+    }
+
+    &.searching {
+      background-color: gray;
+      pointer-events: none;
+    }
+
+    &.error-animation {
+      background-color: red;
+      pointer-events: none;
+    }
+  }
+}
