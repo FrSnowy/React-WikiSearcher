@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import store from './store';
 import { Provider } from 'react-redux';
 import App from './components/App/App';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.scss';
 
 ReactDOM.render(
   <Provider store = { store }>
     <Router>
-      <Route exact path = '/' component={App}/>
+      <Switch>
+        <Route exact path = '/' component={App}/>
+        <Redirect to='/'/>
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById('root')

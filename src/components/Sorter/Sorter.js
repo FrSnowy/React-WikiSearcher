@@ -12,7 +12,7 @@ class Sorter extends Core {
         <div className = "filter-name">{title}:</div>
         <select
           className = "alphabet-select"
-          value = { parseURL(this.props.location, this.props.query) || 'up' }
+          value = { parseURL(this.props.location, this.props.query) || 'no' }
           onChange = { this.changeHandler.bind(this) }>
           {
             this.props.variants.map((variant, i) =>

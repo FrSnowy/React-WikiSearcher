@@ -38,7 +38,7 @@ class SearchResults extends Core {
   render() {
     const { className } = this.props;
     if (this.props.results) {
-      const nameDirection = parseURL(this.props.location, 'name') || 'up';
+      const nameDirection = parseURL(this.props.location, 'name') || 'no';
       let sortedResults = this.sortResults(this.props.results.search, 'title', nameDirection);
       const resultCards = sortedResults.map((searchResult, i) =>
         <SearchResult

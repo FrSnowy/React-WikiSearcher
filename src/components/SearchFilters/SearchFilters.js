@@ -13,8 +13,9 @@ class SearchFilters extends Core {
           title = "Заголовок"
           query = "name"
           variants = {[
+            { name: 'no', text: 'Без сортировки' },
             { name: 'up', text: 'А-Я' },
-            { name: 'down', text: 'Я-А' }
+            { name: 'down', text: 'Я-А' },
           ]}
         />
       </div>
