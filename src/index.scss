@@ -4,6 +4,8 @@
 @import './components/SearchButton/SearchButton.scss';
 @import './components/SearchResults/SearchResults.scss';
 @import './components/SearchResult/SearchResult.scss';
+@import './components/SearchFilters/SearchFilters.scss';
+@import './components/Sorter/Sorter.scss';
 
 @include Content($class: 'content-top');
 @include Content($class: 'content-results');
@@ -12,6 +14,8 @@
 @include SearchButton();
 @include SearchResults();
 @include SearchResult();
+@include SearchFilters();
+@include Sorter($class: 'alphabet');
 
 body {
   margin: 0;

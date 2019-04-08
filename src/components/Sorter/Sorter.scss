@@ -1,0 +1,15 @@
+@mixin Sorter(
+  $class: '',
+  $width: auto,
+  $filter-height: 32px,
+) {
+  .filter-#{$class} {
+    display: inline-block;
+    width: $width;
+
+    select {
+      width: 100%;
+      height: $filter-height;
+    }
+  }
+}

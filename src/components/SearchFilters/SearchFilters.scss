@@ -1,0 +1,10 @@
+@mixin SearchFilters(
+  $class: 'filters',
+  $width: 100%,
+) {
+  .#{$class}-wrapper {
+    position: relative;
+    width: $width;
+    margin: 0 auto;
+  }
+}

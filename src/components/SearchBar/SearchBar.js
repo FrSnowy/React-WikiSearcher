@@ -1,12 +1,23 @@
 import React from 'react';
 import Core from '../Core/Core';
 import SearchButton from '../SearchButton/SearchButton';
-
 import { connect } from 'react-redux';
 import actions from './SearchBar.actions';
+import parseUrl from '../parseURL';
+import { withRouter } from 'react-router-dom';
 import './SearchBar.scss';
 
 class SearchBar extends Core {
+  constructor(props) {
+    super(props);
+
+    const searchString = parseUrl(this.props.location, 'q'); 
+    if (searchString) {
+      this.props.updateSearchString(searchString);
+      this.props.saveSearchString(searchString);
+      this.props.getInfo(searchString);
+    }
+  }
   render() {
     const  { className, searchString, activity, updateSearchString } = this.props;
     return (
@@ -28,6 +39,18 @@ class SearchBar extends Core {
     );
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location.search !== prevProps.location.search) {
+      const searchString = parseUrl(this.props.location, 'q');
+      if (searchString) {
+        this.props.updateSearchString(searchString);
+        this.props.saveSearchString(searchString);
+        this.props.getInfo(searchString);
+      }
+      console.log(searchString);
+    }
+  }
+
   startSearchOnEnter(e) {  
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -37,7 +60,7 @@ class SearchBar extends Core {
 
   async startSearch() {
     if (this.props.searchString.length >= 3 && this.props.activity === 'reading') {
-      this.props.getInfo(this.props.searchString);
+      this.props.history.push(`/?q=${this.props.searchString.replace(/&/g, '').replace(/\?/g, '')}`)
     } else {
       this.props.changeActivity('error-animation');
       setTimeout(() => this.props.changeActivity('reading'), 400)
@@ -72,4 +95,6 @@ const mapDispatchToProps = dispatch => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+);
