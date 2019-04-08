@@ -1,0 +1,28 @@
+@mixin SearchResults(
+  $class: 'results',
+  $width: 100%,
+) {
+  .#{$class}-wrapper {
+    position: relative;
+    width: $width;
+    margin: 0 auto;
+
+    .#{$class}-title {
+      margin: 24px 0;
+      h3 {
+        display: inline;
+        font-weight: normal;
+      }
+
+      span:first-of-type {
+        font-weight: bold;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 24px;
+    }
+  }
+}

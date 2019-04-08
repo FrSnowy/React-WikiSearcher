@@ -12,7 +12,7 @@ class Content extends Core {
   };
 
   _loadImportantProps() {
-    return ['className'];
+    return [...super._loadImportantProps()];
   }
 };
 

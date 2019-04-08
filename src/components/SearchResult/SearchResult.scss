@@ -1,0 +1,27 @@
+@mixin SearchResult(
+  $class: 'result',
+  $width: 100%,
+  $match-color: rgb(79, 195, 247),
+  $separator-color: rgba(0, 0, 0, .15),
+) {
+  .#{$class}-wrapper {
+    position: relative;
+    width: $width;
+    margin: 24px auto 0px auto;
+
+    border-bottom: 1px solid $separator-color;
+
+    .#{$class}-title {
+      font-size: 20px;
+
+      a { 
+        text-decoration: none;
+      }
+    }
+
+    .searchmatch {
+      font-weight: bold;
+      color: $match-color;
+    }
+  }
+}

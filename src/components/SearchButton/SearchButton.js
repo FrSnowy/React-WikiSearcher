@@ -18,7 +18,7 @@ class SearchButton extends Core {
   };
 
   _loadImportantProps() {
-    return ['className', ...super._loadImportantProps()];
+    return [...super._loadImportantProps()];
   };
 
 };

@@ -19,7 +19,7 @@ class Header extends Core {
   };
 
   _loadImportantProps() {
-    return ['className', 'title', 'subtitle'];
+    return ['title', 'subtitle', ...super._loadImportantProps()];
   }
 };
 

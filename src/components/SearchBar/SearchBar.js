@@ -37,7 +37,7 @@ class SearchBar extends Core {
 
   async startSearch() {
     if (this.props.searchString.length >= 3 && this.props.activity === 'reading') {
-      this.props.changeActivity('searching');
+      this.props.getInfo(this.props.searchString);
     } else {
       this.props.changeActivity('error-animation');
       setTimeout(() => this.props.changeActivity('reading'), 400)
@@ -45,12 +45,13 @@ class SearchBar extends Core {
   }
 
   _loadImportantProps() {
-    return ['className', 'placeHolder', ...super._loadImportantProps()];
+    return ['placeHolder', ...super._loadImportantProps()];
   }
 };
 
 const mapStateToProps = store => ({
   searchString: store.searchBar.searchString,
+  cachedString: store.searchBar.cachedString,
   activity: store.searchBar.activity,
 });
 
@@ -59,8 +60,14 @@ const mapDispatchToProps = dispatch => (
     updateSearchString: event => dispatch(
       actions.updateSearchValue(event)
     ),
+    saveSearchString: searchString => dispatch(
+      actions.saveSearchString(searchString)
+    ),
     changeActivity: (value) => dispatch(
       actions.changeActivity(value)
+    ),
+    getInfo: (bySelector) => dispatch(
+      actions.getInfo(bySelector)
     ),
   }
 );

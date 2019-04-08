@@ -2,11 +2,16 @@
 @import './components/Header/Header.scss';
 @import './components/Content/Content.scss';
 @import './components/SearchButton/SearchButton.scss';
+@import './components/SearchResults/SearchResults.scss';
+@import './components/SearchResult/SearchResult.scss';
 
 @include Content($class: 'content-top');
+@include Content($class: 'content-results');
 @include SearchBar($width: 50%);
 @include Header($width: 50%);
 @include SearchButton();
+@include SearchResults();
+@include SearchResult();
 
 body {
   margin: 0;
@@ -25,4 +30,9 @@ body {
   .searchbar-wrapper {
     margin-bottom: 36px;
   }
+}
+
+.results-block {
+  margin-left: 24px;
+  margin-right: 24px;
 }
