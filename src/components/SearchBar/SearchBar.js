@@ -19,9 +19,9 @@ class SearchBar extends Core {
     }
   }
   render() {
-    const  { className, searchString, activity, updateSearchString } = this.props;
+    const  { className, searchString, activity, updateSearchString, theme } = this.props;
     return (
-      <div className = {`${className}-wrapper ${activity}`}>
+      <div className = {`${className}-wrapper ${activity} ${theme}`}>
         <form>
           <input type = "text"
             placeholder = { searchString === null || searchString === ''   ? this.props.placeHolder : '' }
@@ -34,6 +34,7 @@ class SearchBar extends Core {
           className = "search-button"
           activity = { activity }
           startSearch = { this.startSearch.bind(this) }
+          theme = { this.props.theme }
         />
       </div>
     );

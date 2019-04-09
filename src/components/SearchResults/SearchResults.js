@@ -36,7 +36,7 @@ class SearchResults extends Core {
     return results;
   }
   render() {
-    const { className } = this.props;
+    const { className, theme } = this.props;
     if (this.props.results) {
       const nameDirection = parseURL(this.props.location, 'name') || 'no';
       let sortedResults = this.sortResults(this.props.results.search, 'title', nameDirection);
@@ -46,17 +46,18 @@ class SearchResults extends Core {
           className = "result"
           title = {searchResult.title}
           snippet = { searchResult.snippet }
+          theme = { this.props.theme }
         />
       )
 
       if (resultCards.length > 0) {
         return(
-          <div className = {`${className}-wrapper`}>
+          <div className = {`${className}-wrapper ${theme}`}>
             <div className = {`${className}-title`}>
               <h3>Результаты поиска по запросу</h3>
               <span>"{this.props.query}":</span>
             </div>
-            <SearchFilters className = 'filters'/>
+            <SearchFilters className = 'filters' theme = { theme }/>
             <div className = {`${className}-content`}>
               { resultCards }
             </div>
@@ -64,7 +65,7 @@ class SearchResults extends Core {
         )
       } else {
         return(
-          <div className = {`${className}-wrapper`}>
+          <div className = {`${className}-wrapper ${theme}`}>
             <div className = {`${className}-title`}>
               <h3>По запросу</h3>
               <span>"{this.props.query}"</span>
@@ -75,7 +76,7 @@ class SearchResults extends Core {
       }      
     } else {
       return (
-        <div className = {`${className}-wrapper empty`}/>
+        <div className = {`${className}-wrapper empty ${theme}`}/>
       )
     }
   };

@@ -11,5 +11,14 @@
       width: 100%;
       height: $filter-height;
     }
+
+    &.dark {
+      select {
+        border: 1px solid white;
+        background: transparent;
+        color: gray;
+        outline: none;
+      }
+    }
   }
 }

@@ -1,0 +1,14 @@
+@mixin Block(
+  $class: '',
+  $background-color: white,
+  $background-color-dark: black,
+) {
+  .#{$class} {
+    &.light {
+      background-color: $background-color;
+    }
+    &.dark {
+      background-color: $background-color-dark;
+    }
+  }
+}

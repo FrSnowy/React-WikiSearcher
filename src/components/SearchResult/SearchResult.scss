@@ -2,7 +2,9 @@
   $class: 'result',
   $width: 100%,
   $match-color: rgb(79, 195, 247),
+  $match-color-dark: rgb(255, 255, 255),
   $separator-color: rgba(0, 0, 0, .15),
+  $separator-color-dark: rgba(255, 255, 255, .15),
 ) {
   .#{$class}-wrapper {
     position: relative;
@@ -22,6 +24,20 @@
     .searchmatch {
       font-weight: bold;
       color: $match-color;
+    }
+
+    &.dark {
+      color: lightgray;
+      border-bottom: 1px solid $separator-color-dark;
+
+      a {
+        color: darkgray;
+        text-decoration: underline;
+      }
+
+      .searchmatch {
+        color: $match-color-dark;
+      }
     }
   }
 }

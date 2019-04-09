@@ -4,14 +4,15 @@ import Sorter from '../Sorter/Sorter';
 
 class SearchFilters extends Core {
   render() {
-    const { className } = this.props;
+    const { className, theme } = this.props;
 
     return (
-      <div className = {`${className}-wrapper`}>
+      <div className = {`${className}-wrapper ${theme}`}>
         <Sorter
           className = "alphabet"
           title = "Заголовок"
           query = "name"
+          theme = { this.props.theme }
           variants = {[
             { name: 'no', text: 'Без сортировки' },
             { name: 'up', text: 'А-Я' },

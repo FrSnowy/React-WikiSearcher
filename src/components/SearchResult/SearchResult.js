@@ -4,9 +4,9 @@ import './SearchResult.scss';
 
 class SearchResult extends Core {
   render() {
-    const { className } = this.props;
+    const { className, theme } = this.props;
     return(
-      <div className = {`${className}-wrapper`}>
+      <div className = {`${className}-wrapper ${theme}`}>
         <div className = {`${className}-title`}>
           <a href = {`https://ru.wikipedia.org/wiki/${this.props.title}`}>{this.props.title}</a>
         </div>

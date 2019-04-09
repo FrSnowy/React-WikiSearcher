@@ -6,6 +6,8 @@
 @import './components/SearchResult/SearchResult.scss';
 @import './components/SearchFilters/SearchFilters.scss';
 @import './components/Sorter/Sorter.scss';
+@import './components/ThemeSwitcher/ThemeSwitcher.scss';
+@import './components/Block/Block.scss';
 
 @include Content($class: 'content-top');
 @include Content($class: 'content-results');
@@ -16,6 +18,13 @@
 @include SearchResult();
 @include SearchFilters();
 @include Sorter($class: 'alphabet');
+@include ThemeSwitcher();
+@include Block(
+  $class: 'header-block',
+  $background-color: rgba(230, 230, 230, 1),
+  $background-color-dark: rgba(10, 10, 5, .8)
+);
+@include Block($class: 'results-block', $background-color-dark: none);
 
 body {
   margin: 0;
@@ -27,10 +36,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App.dark {
+  background-color: black;
+}
 .header-block {
-  background-color: rgba(0, 0, 0, .05);
   overflow: hidden;
-
   .searchbar-wrapper {
     margin-bottom: 36px;
   }

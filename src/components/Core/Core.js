@@ -18,7 +18,7 @@ class Core extends Component {
   };
 
   _loadImportantProps() {
-    return ['className'];
+    return ['className', 'theme'];
   };
 }
 

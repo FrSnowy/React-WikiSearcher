@@ -5,12 +5,12 @@ import lookupIcon from '../../assets/img/search.svg';
 
 class SearchButton extends Core {
   render() {
-    const { className, activity, startSearch } = this.props;
+    const { className, activity, startSearch, theme } = this.props;
 
     return (
       <div
         onClick = { startSearch }
-        className = {`${className} ${activity}`}
+        className = {`${className} ${activity} ${theme}`}
       >
         <img src = { lookupIcon } alt = "Искать" />
       </div>

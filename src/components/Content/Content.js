@@ -4,9 +4,10 @@ import './Content.scss';
 
 class Content extends Core {
   render() {
+    const { className, theme, children } = this.props;
     return (
-      <div className = {`${this.props.className}-wrapper`}>
-        {this.props.children}
+      <div className = {`${className}-wrapper ${theme}`}>
+        {children}
       </div>
     );
   };

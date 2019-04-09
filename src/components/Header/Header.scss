@@ -35,6 +35,12 @@
       .title { font-size: 28px; }
       .subtitle { font-size: 20px;  }
     }
+
+    &.dark {
+      .#{$class}-text-wrapper {
+        color: rgb(220, 220, 220);
+      }
+    }
   }
 
   @media (max-width: 1023px) {

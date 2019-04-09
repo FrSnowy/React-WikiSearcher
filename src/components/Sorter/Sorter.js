@@ -5,10 +5,10 @@ import parseURL from '../parseURL';
 
 class Sorter extends Core {
   render() {
-    const { className, title } = this.props;
+    const { className, title, theme } = this.props;
 
     return (
-      <div className = {`filter filter-${className}`}>
+      <div className = {`filter filter-${className} ${theme}`}>
         <div className = "filter-name">{title}:</div>
         <select
           className = "alphabet-select"
